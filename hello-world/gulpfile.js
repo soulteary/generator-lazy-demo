@@ -51,7 +51,6 @@ gulp.task('clean:files', function() {
 
 // 同步处理好的静态文件
 gulp.task('demo:sync', function() {
-    gulp.src(['demo/page/assets/**'], {read : false}).pipe(rm({async : false}));
     return gulp.src('')
         .pipe(sync('./dist', 'demo/page/assets', {printSummary : true}))
         .on('error', gutil.log);
