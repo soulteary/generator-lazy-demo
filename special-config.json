@@ -1,0 +1,31 @@
+{
+    "name": "your-project-name",
+    "desc": "这里是项目的默认描述信息。",
+    "author": "yournickname <yournickname@email.com> (http://website.com)",
+    "build": {
+        "mode": "static",
+        "install": true
+    },
+    "license": {
+        "name": "your-project-name",
+        "type": "MIT",
+        "year": "2015",
+        "author": "yournickname <yournickname@email.com> (http://website.com)",
+        "desc": "这里是项目的默认描述信息。"
+    },
+    "css": {
+        "type": "less"
+    },
+    "tasker": {
+        "type": "gulp"
+    },
+    "template": {
+        "type": "doT"
+    },
+    "js": {
+        "module": "commonjs",
+        "jquery": 1 
+    },
+    "test": false
+}
+
