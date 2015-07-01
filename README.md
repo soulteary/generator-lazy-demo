@@ -1,4 +1,4 @@
-# Generator Lazy Demo
+## Generator Lazy Demo
 
 ```
 跟着例子在3分钟内玩转Generator Lazy。
@@ -6,13 +6,13 @@
 
 [![Generator Lazy Demo](./demo.png)](./README.md)
 
-## Useage
+### Useage
 
-### 向导模式创建
+#### 向导模式创建
 
 - 在任意目录中执行```yo lazy```，然后一路NEXT即可。
 
-### 在包含配置文件的项目中使用
+#### 在包含配置文件的项目中使用
 
 - 命令: ```yo lazy```
 
@@ -21,7 +21,7 @@ cd build-with-config-exist
 yo lazy
 ```
 
-### 在未包含任何配置文件的项目中使用
+#### 在未包含任何配置文件的项目中使用
 
 - 命令: ```yo lazy --with-profile [config file path]```
 
@@ -30,7 +30,7 @@ cd build-with-special-config
 yo lazy --with-profile ../special-config.json
 ```
 
-### 使用默认的命令创建项目
+#### 使用默认的命令创建项目
 
 - 命令: ```yo lazy --with-configure [words or base64 config]```
 
