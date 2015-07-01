@@ -27,8 +27,6 @@ var devMode = false;
 // 清理之前生成的文件
 
 gulp.task('default', function(callback) {
-
-    runSequence('clean:files', 'style:less');
     runSequence(
         'clean:files',
         'style:less',
@@ -66,7 +64,7 @@ gulp.task('demo:sync', function(callback) {
             callback(error);
         });
     return gulp.src('')
-        .pipe(sync('./dist', 'demo/page/assets', {printSummary : true}))
+        .pipe(sync('./dist', 'demo/page/assets', {printSummary : false}))
         .on('error', gutil.log);
 });
 
@@ -149,7 +147,7 @@ gulp.task('styles:copy-img', function() {
 });
 
 gulp.task('watch', function() {
-    var files = gulp.watch(['./src/**/*'], function(event){
+    var files = gulp.watch(['./src/**/*', '!./src/js/tpl/*.js'], function(event){
         if(event.path.match(/.*src\/tpl\/.*\.js$/)){
            return false;
         }else{
