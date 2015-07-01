@@ -33,6 +33,7 @@ gulp.task('default', function(callback) {
         'scripts:build',
         'styles:copy-font',
         'styles:copy-img',
+        'demo:sync',
         'watch',
         function(error) {
             if (error) {
@@ -49,22 +50,10 @@ gulp.task('clean:files', function() {
 });
 
 // 同步处理好的静态文件
-gulp.task('demo:sync', function(callback) {
-    runSequence(
-        'style:less',
-        'scripts:build',
-        'styles:copy-font',
-        'styles:copy-img',
-        function(error) {
-            if (error) {
-                console.log(error.message);
-            } else {
-                console.log('WATCHING...');
-            }
-            callback(error);
-        });
+gulp.task('demo:sync', function() {
+    gulp.src(['demo/page/assets/**'], {read : false}).pipe(rm({async : false}));
     return gulp.src('')
-        .pipe(sync('./dist', 'demo/page/assets', {printSummary : false}))
+        .pipe(sync('./dist', 'demo/page/assets', {printSummary : true}))
         .on('error', gutil.log);
 });
 
@@ -154,7 +143,8 @@ gulp.task('watch', function() {
             runSequence('style:less',
                 'scripts:build',
                 'styles:copy-font',
-                'styles:copy-img');
+                'styles:copy-img',
+                'demo:sync');
             gulp.src('')
                 .pipe(sync('./dist', 'demo/page/assets', {printSummary : true}))
                 .on('error', gutil.log);
